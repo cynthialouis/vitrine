@@ -29,6 +29,13 @@ describe('HomePage', () => {
     expect(link).toHaveAttribute('href', `#${target.id}`)
   })
 
+  it('links the secondary call to action to the education section', () => {
+    render(<HomePage />)
+    const link = screen.getByRole('link', { name: 'Voir mes formations' })
+    const target = screen.getByRole('region', { name: 'Mes formations' })
+    expect(link).toHaveAttribute('href', `#${target.id}`)
+  })
+
   it('exposes the decorative code card through an accessible summary', () => {
     render(<HomePage />)
     const card = screen.getByRole('figure', { name: new RegExp(profile.name) })

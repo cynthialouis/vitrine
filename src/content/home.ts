@@ -5,6 +5,9 @@ export type HomeContent = {
   experiences: {
     description: string
   }
+  education: {
+    description: string
+  }
 }
 
 export const home: HomeContent = {
@@ -14,5 +17,9 @@ export const home: HomeContent = {
   experiences: {
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.',
+  },
+  education: {
+    description:
+      'Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.',
   },
 }

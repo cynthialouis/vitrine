@@ -33,6 +33,12 @@ export function HeroSection() {
               Découvrir mon parcours
               <ArrowDownIcon className="size-4 motion-safe:transition-transform motion-safe:group-hover:translate-y-0.5" />
             </a>
+            <a
+              href="#education"
+              className="inline-flex items-center rounded-full border border-line px-6 py-3.5 font-medium transition-colors hover:border-ink"
+            >
+              Voir mes formations
+            </a>
           </div>
         </div>
 

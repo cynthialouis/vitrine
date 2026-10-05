@@ -1,4 +1,5 @@
 import { profile } from '../../content/profile'
+import { EducationSection } from './EducationSection'
 import { ExperiencesSection } from './ExperiencesSection'
 import { HeroSection } from './HeroSection'
 
@@ -9,6 +10,7 @@ export function HomePage() {
       <meta name="description" content={profile.pitch} />
       <HeroSection />
       <ExperiencesSection />
+      <EducationSection />
     </>
   )
 }
