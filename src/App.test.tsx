@@ -1,10 +1,11 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import App from './App'
+import { App } from './App'
 
 describe('App', () => {
-  it('renders the main landmark', () => {
+  it('renders the home page inside the main landmark', () => {
     render(<App />)
-    expect(screen.getByRole('main')).toBeInTheDocument()
+    const main = screen.getByRole('main')
+    expect(within(main).getByRole('heading', { level: 1 })).toBeInTheDocument()
   })
 })

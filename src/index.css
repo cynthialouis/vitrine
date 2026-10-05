@@ -1,1 +1,54 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+
+  --color-paper: oklch(0.985 0.004 95);
+  --color-surface: oklch(1 0 0);
+  --color-ink: oklch(0.21 0.012 260);
+  --color-ink-soft: oklch(0.46 0.012 260);
+  --color-line: oklch(0.9 0.006 95);
+  --color-accent: oklch(0.58 0.1 165);
+  --color-accent-ink: oklch(0.4 0.075 165);
+
+  --color-code-bg: oklch(0.21 0.012 260);
+  --color-code-text: oklch(0.93 0.005 260);
+  --color-code-muted: oklch(0.68 0.012 260);
+  --color-code-keyword: oklch(0.8 0.1 165);
+  --color-code-string: oklch(0.84 0.09 75);
+
+  --text-hero: clamp(2.75rem, 7vw, 5.25rem);
+  --text-hero--line-height: 1.02;
+  --text-hero--letter-spacing: -0.035em;
+
+  --spacing-glow: 36rem;
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  mask-image: radial-gradient(ellipse at top, black 30%, transparent 75%);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/20;
+  }
+}
