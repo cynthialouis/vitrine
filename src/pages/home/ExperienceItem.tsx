@@ -35,7 +35,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
   const { role, company, location, start, end, missions, stack } = experience
 
   return (
-    <article className="grid gap-x-8 gap-y-4 py-10 lg:grid-cols-12">
+    <article className="grid gap-x-8 gap-y-4 py-6 lg:grid-cols-12">
       <div className="lg:col-span-8 lg:col-start-5">
         <h3 className="text-2xl font-medium tracking-tight text-balance">{role}</h3>
         {company && <p className="mt-1 font-medium text-accent-ink">{company}</p>}

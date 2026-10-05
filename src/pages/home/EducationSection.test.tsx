@@ -1,7 +1,6 @@
 import { render, screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { certifications, education } from '../../content/education'
-import { formatDate } from '../../lib/format-date'
+import { education } from '../../content/education'
 import { EducationSection } from './EducationSection'
 
 describe('EducationSection', () => {
@@ -10,39 +9,16 @@ describe('EducationSection', () => {
     expect(screen.getByRole('region', { name: 'Mes formations' })).toBeInTheDocument()
   })
 
-  it('renders every degree as a level-three heading', () => {
+  it('renders every entry as an article titled in content order', () => {
     render(<EducationSection />)
-    education.forEach((item) => {
-      expect(screen.getByRole('heading', { level: 3, name: item.degree })).toBeInTheDocument()
-    })
-  })
+    const articles = screen.getAllByRole('article')
 
-  it('renders certifications in a nested sub-section', () => {
-    render(<EducationSection />)
-    const educationRegion = screen.getByRole('region', { name: 'Mes formations' })
-    const certificationsRegion = within(educationRegion).getByRole('region', {
-      name: 'Mes certifications',
-    })
-
-    expect(within(certificationsRegion).getAllByRole('heading', { level: 4 })).toHaveLength(
-      certifications.length,
-    )
-  })
-
-  it('shows the issuer and the machine-readable date of each certification', () => {
-    render(<EducationSection />)
-    const certificationsRegion = screen.getByRole('region', { name: 'Mes certifications' })
-    const cards = within(certificationsRegion).getAllByRole('article')
-
-    certifications.forEach((certification, index) => {
-      const card = cards[index]
-      if (!card) throw new Error(`Missing card for ${certification.id}`)
-
-      expect(within(card).getByText(certification.issuer)).toBeInTheDocument()
-      expect(within(card).getByText(formatDate(certification.issuedOn))).toHaveAttribute(
-        'datetime',
-        certification.issuedOn,
-      )
+    expect(articles).toHaveLength(education.length)
+    education.forEach((item, index) => {
+      const article = articles[index]
+      if (!article) throw new Error(`Missing article for ${item.id}`)
+      expect(within(article).getByRole('heading', { level: 3 })).toHaveTextContent(item.title)
+      expect(within(article).getByText(item.organization)).toBeInTheDocument()
     })
   })
 })

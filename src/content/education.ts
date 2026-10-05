@@ -1,4 +1,4 @@
-import type { IsoDate, IsoMonth } from '../lib/format-date'
+import type { IsoDate } from '../lib/format-date'
 
 export type Module = {
   title: string
@@ -7,28 +7,19 @@ export type Module = {
 
 export type Education = {
   id: string
-  degree: string
-  school: string
+  title: string
+  organization: string
   location?: string
-  start: IsoDate
-  end: IsoDate
+  period?: { start: IsoDate; end: IsoDate }
   modules?: readonly Module[]
-}
-
-export type Certification = {
-  id: string
-  name: string
-  issuer: string
-  issuedOn: IsoMonth
 }
 
 export const education: readonly Education[] = [
   {
     id: 'eni-concepteur-developpeur',
-    degree: 'Concepteur Développeur Informatique, titre RNCP niveau II',
-    school: 'ENI Ecole Informatique',
-    start: '2016',
-    end: '2017',
+    title: 'Concepteur Développeur Informatique, titre RNCP niveau II',
+    organization: 'ENI Ecole Informatique',
+    period: { start: '2016', end: '2017' },
     modules: [
       {
         title: 'Piloter un projet',
@@ -64,10 +55,9 @@ export const education: readonly Education[] = [
   },
   {
     id: 'eni-developpeur-logiciel',
-    degree: 'Développeur Logiciel, titre RNCP niveau III',
-    school: 'ENI Ecole Informatique',
-    start: '2015',
-    end: '2016',
+    title: 'Développeur Logiciel, titre RNCP niveau III',
+    organization: 'ENI Ecole Informatique',
+    period: { start: '2015', end: '2016' },
     modules: [
       {
         title: 'Développer une application objet',
@@ -104,30 +94,31 @@ export const education: readonly Education[] = [
   },
   {
     id: 'rennes-2-llce',
-    degree: 'Licence 3 LLCE Anglais',
-    school: 'Université Rennes 2',
-    start: '2008',
-    end: '2008',
-  },
-]
-
-export const certifications: readonly Certification[] = [
-  {
-    id: 'certification-1',
-    name: 'Lorem ipsum dolor sit amet',
-    issuer: 'Consectetur',
-    issuedOn: '2024-04',
+    title: 'Licence 3 LLCE Anglais',
+    organization: 'Université Rennes 2',
+    period: { start: '2008', end: '2008' },
   },
   {
-    id: 'certification-2',
-    name: 'Adipiscing elit sed do',
-    issuer: 'Eiusmod',
-    issuedOn: '2022-05',
+    id: 'livementor-copywriting',
+    title: 'Générer des prospects grâce à une stratégie de rédaction de contenus digitaux - Copywriting',
+    organization: 'LiveMentor',
+    period: { start: '2026-02', end: '2026-02' },
   },
   {
-    id: 'certification-3',
-    name: 'Tempor incididunt ut labore',
-    issuer: 'Aliqua',
-    issuedOn: '2021-11',
+    id: 'livementor-seo',
+    title: 'Entreprendre et développer sa clientèle grâce au marketing digital - SEO',
+    organization: 'LiveMentor',
+    period: { start: '2025-07', end: '2025-07' },
+  },
+  {
+    id: 'scrum-org-psm-1',
+    title: 'Professional Scrum Master I (PSM I)',
+    organization: 'Scrum.org',
+    period: { start: '2021-11', end: '2021-11' },
+  },
+  {
+    id: '26-academy-pspo-1',
+    title: 'Agile Scrum Product Owner (PSPO I)',
+    organization: '26 Academy',
   },
 ]

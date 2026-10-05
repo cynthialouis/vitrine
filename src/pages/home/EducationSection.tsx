@@ -1,9 +1,8 @@
 import { Container } from '../../components/ui/Container'
 import { SectionHeading } from '../../components/ui/SectionHeading'
 import { Serif } from '../../components/ui/Serif'
-import { certifications, education } from '../../content/education'
+import { education } from '../../content/education'
 import { home } from '../../content/home'
-import { CertificationCard } from './CertificationCard'
 import { EducationItem } from './EducationItem'
 
 export function EducationSection() {
@@ -31,20 +30,6 @@ export function EducationSection() {
             </li>
           ))}
         </ol>
-
-        <section aria-labelledby="certifications-title" className="mt-16 sm:mt-20">
-          <h3 id="certifications-title" className="text-3xl font-medium tracking-tight">
-            Mes <Serif>certifications</Serif>
-          </h3>
-
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {certifications.map((certification) => (
-              <li key={certification.id}>
-                <CertificationCard certification={certification} />
-              </li>
-            ))}
-          </ul>
-        </section>
       </Container>
     </section>
   )

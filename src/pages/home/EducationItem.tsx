@@ -10,20 +10,20 @@ const bulletClassName =
   'relative pl-6 leading-relaxed text-pretty before:absolute before:top-3 before:left-0 before:h-px before:w-3 before:bg-accent'
 
 export function EducationItem({ education }: EducationItemProps) {
-  const { degree, school, location, start, end, modules } = education
+  const { title, organization, location, period, modules } = education
 
   return (
-    <article className="grid gap-x-8 gap-y-4 py-10 lg:grid-cols-12">
+    <article className="grid gap-x-8 gap-y-4 py-6 lg:grid-cols-12">
       <div className="lg:col-span-8 lg:col-start-5">
-        <h3 className="text-2xl font-medium tracking-tight text-balance">{degree}</h3>
-        <p className="mt-1 font-medium text-accent-ink">{school}</p>
+        <h3 className="text-2xl font-medium tracking-tight text-balance">{title}</h3>
+        <p className="mt-1 font-medium text-accent-ink">{organization}</p>
 
         {modules && modules.length > 0 && (
           <>
             <ul aria-label="Modules" className="mt-5 max-w-2xl space-y-2">
-              {modules.map(({ title }) => (
-                <li key={title} className={bulletClassName}>
-                  {title}
+              {modules.map(({ title: moduleTitle }) => (
+                <li key={moduleTitle} className={bulletClassName}>
+                  {moduleTitle}
                 </li>
               ))}
             </ul>
@@ -36,9 +36,9 @@ export function EducationItem({ education }: EducationItemProps) {
               </summary>
 
               <div className="mt-6 space-y-6">
-                {modules.map(({ title, topics }) => (
-                  <div key={title}>
-                    <p className="font-medium">{title}</p>
+                {modules.map(({ title: moduleTitle, topics }) => (
+                  <div key={moduleTitle}>
+                    <p className="font-medium">{moduleTitle}</p>
                     <ul className="mt-2 space-y-1.5 text-ink-soft">
                       {topics.map((topic) => (
                         <li key={topic} className={bulletClassName}>
@@ -54,10 +54,12 @@ export function EducationItem({ education }: EducationItemProps) {
         )}
       </div>
 
-      <div className="row-start-1 lg:col-span-4 lg:col-start-1">
-        <Period start={start} end={end} />
-        {location && <p className="mt-1 text-sm text-ink-soft">{location}</p>}
-      </div>
+      {(period || location) && (
+        <div className="row-start-1 lg:col-span-4 lg:col-start-1">
+          {period && <Period start={period.start} end={period.end} />}
+          {location && <p className="mt-1 text-sm text-ink-soft">{location}</p>}
+        </div>
+      )}
     </article>
   )
 }

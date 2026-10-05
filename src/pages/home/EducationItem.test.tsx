@@ -5,14 +5,13 @@ import { EducationItem } from './EducationItem'
 
 const minimalEducation: Education = {
   id: 'minimal',
-  degree: 'Degree only',
-  school: 'School',
-  start: '2008',
-  end: '2008',
+  title: 'Title only',
+  organization: 'Organization',
 }
 
 const educationWithModules: Education = {
   ...minimalEducation,
+  period: { start: '2015', end: '2016' },
   modules: [
     { title: 'First module', topics: ['Topic A', 'Topic B'] },
     { title: 'Second module', topics: ['Topic C'] },
@@ -20,12 +19,22 @@ const educationWithModules: Education = {
 }
 
 describe('EducationItem', () => {
-  it('renders the degree, the school and the period', () => {
+  it('renders the title and the organization', () => {
     render(<EducationItem education={minimalEducation} />)
 
-    expect(screen.getByRole('heading', { level: 3, name: 'Degree only' })).toBeInTheDocument()
-    expect(screen.getByText('School')).toBeInTheDocument()
-    expect(screen.getByText('2008')).toHaveAttribute('datetime', '2008')
+    expect(screen.getByRole('heading', { level: 3, name: 'Title only' })).toBeInTheDocument()
+    expect(screen.getByText('Organization')).toBeInTheDocument()
+  })
+
+  it('renders no date when the period is missing', () => {
+    render(<EducationItem education={minimalEducation} />)
+    expect(screen.queryByText(/\d{4}/)).not.toBeInTheDocument()
+  })
+
+  it('renders the period when provided', () => {
+    render(<EducationItem education={educationWithModules} />)
+    expect(screen.getByText('2015')).toHaveAttribute('datetime', '2015')
+    expect(screen.getByText('2016')).toHaveAttribute('datetime', '2016')
   })
 
   it('renders no module list nor program toggle without modules', () => {
