@@ -1,15 +1,9 @@
-import { Footer } from './app/Footer'
-import { Header } from './app/Header'
-import { HomePage } from './pages/home/HomePage'
+import { createBrowserRouter } from 'react-router'
+import { RouterProvider } from 'react-router/dom'
+import { routes } from './app/routes'
+
+const router = createBrowserRouter(routes)
 
 export function App() {
-  return (
-    <>
-      <Header />
-      <main>
-        <HomePage />
-      </main>
-      <Footer />
-    </>
-  )
+  return <RouterProvider router={router} />
 }

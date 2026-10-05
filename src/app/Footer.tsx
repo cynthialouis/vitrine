@@ -1,7 +1,9 @@
+import { Link } from 'react-router'
 import { Container } from '../components/ui/Container'
 import { ArrowDownIcon } from '../components/ui/icons/ArrowDownIcon'
 import { Serif } from '../components/ui/Serif'
 import { profile } from '../content/profile'
+import { paths } from './paths'
 
 const currentYear = new Date().getFullYear()
 
@@ -18,13 +20,18 @@ export function Footer() {
           </p>
         </div>
 
-        <a
-          href="#top"
-          className="group inline-flex items-center gap-2 self-start font-medium transition-colors hover:text-ink sm:self-auto"
-        >
-          Retour en haut
-          <ArrowDownIcon className="size-4 rotate-180 motion-safe:transition-transform motion-safe:group-hover:-translate-y-0.5" />
-        </a>
+        <div className="flex items-center gap-6 self-start sm:self-auto">
+          <Link to={paths.contact} className="font-medium transition-colors hover:text-ink">
+            Contact
+          </Link>
+          <a
+            href="#top"
+            className="group inline-flex items-center gap-2 font-medium transition-colors hover:text-ink"
+          >
+            Retour en haut
+            <ArrowDownIcon className="size-4 rotate-180 motion-safe:transition-transform motion-safe:group-hover:-translate-y-0.5" />
+          </a>
+        </div>
       </Container>
     </footer>
   )

@@ -10,6 +10,7 @@ export type Photo = {
 export type Profile = {
   name: string
   role: AccentedText
+  email: string
   stack: readonly string[]
   photo?: Photo
 }
@@ -17,5 +18,6 @@ export type Profile = {
 export const profile: Profile = {
   name: 'Cynthia LOUIS',
   role: { before: 'Développeuse web', accent: 'freelance' },
+  email: 'cynthialouis.dev@gmail.com',
   stack: ['Vue.js', 'React', 'JavaScript', 'TypeScript'],
 }

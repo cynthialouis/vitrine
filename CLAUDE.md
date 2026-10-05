@@ -69,7 +69,7 @@ src/
 - Le schéma Zod (`schema.ts`) est l'unique source de vérité : validation, types et messages d'erreur (en français).
 - L'action valide avec `safeParse` et retourne un état discriminé typé ; aucune exception ne remonte à l'UI.
 - Erreurs par champ reliées au champ (`aria-invalid`, `aria-describedby`), résumé annoncé (`role="alert"`), focus déplacé sur le premier champ invalide.
-- Validation HTML native conservée en complément (`required`, `type="email"`, `maxLength`).
+- Attributs HTML natifs conservés pour la sémantique, le clavier mobile et l'autocomplétion (`required`, `type="email"`, `autoComplete`, `maxLength`), avec `noValidate` sur le `<form>` : seules les erreurs Zod, accessibles, sont affichées (pas de bulles du navigateur).
 
 ## Zustand (usage volontairement minimal)
 
