@@ -1,8 +1,7 @@
-import { Accented } from '../../components/ui/Accented'
 import { buttonVariants } from '../../components/ui/button-variants'
 import { Container } from '../../components/ui/Container'
+import { Serif } from '../../components/ui/Serif'
 import { ArrowDownIcon } from '../../components/ui/icons/ArrowDownIcon'
-import { home } from '../../content/home'
 import { profile } from '../../content/profile'
 import { CodeCard } from './CodeCard'
 import { ProfilePhoto } from './ProfilePhoto'
@@ -23,12 +22,12 @@ export function HeroSection() {
               {profile.name}
             </h1>
             <p className="mt-4 text-3xl font-medium tracking-tight text-balance text-ink-soft sm:text-4xl">
-              <Accented text={profile.role} />
+              Développeuse web <Serif>freelance</Serif>
             </p>
           </hgroup>
 
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-pretty text-ink-soft">
-            <Accented text={home.hero.description} />
+            Je conçois des interfaces web <Serif>soignées</Serif> et faciles à maintenir.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">

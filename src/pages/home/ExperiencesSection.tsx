@@ -2,7 +2,6 @@ import { Container } from '../../components/ui/Container'
 import { SectionHeading } from '../../components/ui/SectionHeading'
 import { Serif } from '../../components/ui/Serif'
 import { experiences } from '../../content/experiences'
-import { home } from '../../content/home'
 import { ExperienceItem } from './ExperienceItem'
 
 export function ExperiencesSection() {
@@ -20,7 +19,7 @@ export function ExperiencesSection() {
               Mes <Serif>expériences</Serif>
             </>
           }
-          description={home.experiences.description}
+          description="Des années à construire des interfaces qui servent."
         />
 
         <ol className="mt-12 divide-y divide-line border-y border-line sm:mt-16">

@@ -1,9 +1,16 @@
 import type { Photo } from '../../content/profile'
-import { getInitials } from '../../lib/get-initials'
 
 type ProfilePhotoProps = {
   name: string
   photo?: Photo
+}
+
+function getInitials(name: string): string {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase())
+    .join('')
 }
 
 const frameClassName =

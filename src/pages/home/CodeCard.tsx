@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
 import { profile } from '../../content/profile'
-import { toPlainText } from '../../lib/accented-text'
 
 type TokenProps = {
   children: string
@@ -35,7 +34,7 @@ export function CodeCard() {
           <Keyword>const</Keyword> freelance <Punct>=</Punct> <Punct>{'{'}</Punct>
           {'\n  '}name<Punct>:</Punct> <Str>{profile.name}</Str>
           <Punct>,</Punct>
-          {'\n  '}role<Punct>:</Punct> <Str>{toPlainText(profile.role)}</Str>
+          {'\n  '}role<Punct>:</Punct> <Str>{profile.role}</Str>
           <Punct>,</Punct>
           {'\n  '}stack<Punct>:</Punct> <Punct>[</Punct>
           {profile.stack.map((tool) => (

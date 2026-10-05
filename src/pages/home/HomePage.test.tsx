@@ -2,15 +2,15 @@ import { render, screen, within } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
 import { describe, expect, it } from 'vitest'
 import { paths } from '../../app/paths'
-import { home } from '../../content/home'
 import { profile } from '../../content/profile'
-import { toPlainText } from '../../lib/accented-text'
 import { HomePage } from './HomePage'
+
+const heroDescription = 'Je conçois des interfaces web soignées et faciles à maintenir.'
 
 describe('HomePage', () => {
   it('sets the document title', () => {
     render(<HomePage />, { wrapper: MemoryRouter })
-    expect(document.title).toBe(`${profile.name} · ${toPlainText(profile.role)}`)
+    expect(document.title).toBe(`${profile.name} · ${profile.role}`)
   })
 
   it('renders a single level-one heading', () => {
@@ -23,14 +23,14 @@ describe('HomePage', () => {
     const hero = screen.getByRole('region', { name: profile.name })
 
     expect(within(hero).getByRole('heading', { level: 1 })).toHaveTextContent(profile.name)
-    expect(hero).toHaveTextContent(toPlainText(profile.role))
-    expect(hero).toHaveTextContent(toPlainText(home.hero.description))
+    expect(hero).toHaveTextContent(profile.role)
+    expect(hero).toHaveTextContent(heroDescription)
   })
 
   it('does not expose the role as a section heading', () => {
     render(<HomePage />, { wrapper: MemoryRouter })
     expect(
-      screen.queryByRole('heading', { name: toPlainText(profile.role) }),
+      screen.queryByRole('heading', { name: profile.role }),
     ).not.toBeInTheDocument()
   })
 
@@ -38,7 +38,7 @@ describe('HomePage', () => {
     render(<HomePage />, { wrapper: MemoryRouter })
     expect(document.querySelector('meta[name="description"]')).toHaveAttribute(
       'content',
-      toPlainText(home.hero.description),
+      heroDescription,
     )
   })
 
@@ -60,7 +60,7 @@ describe('HomePage', () => {
     render(<HomePage />, { wrapper: MemoryRouter })
     const section = screen.getByRole('region', { name: 'Un projet en tête\u00a0?' })
 
-    expect(section).toHaveTextContent(home.contactCta.description)
+    expect(section).toHaveTextContent('Racontez-moi votre besoin et je vous réponds rapidement.')
     expect(within(section).getByRole('link', { name: 'Me contacter' })).toHaveAttribute(
       'href',
       paths.contact,

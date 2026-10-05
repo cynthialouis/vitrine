@@ -3,7 +3,6 @@ import { paths } from '../../app/paths'
 import { Container } from '../../components/ui/Container'
 import { ArrowDownIcon } from '../../components/ui/icons/ArrowDownIcon'
 import { Serif } from '../../components/ui/Serif'
-import { home } from '../../content/home'
 
 export function ContactCtaSection() {
   return (
@@ -17,7 +16,7 @@ export function ContactCtaSection() {
               Un projet en <Serif>tête</Serif>&nbsp;?
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-pretty text-ink-soft">
-              {home.contactCta.description}
+              Racontez-moi votre besoin et je vous réponds rapidement.
             </p>
 
             <Link

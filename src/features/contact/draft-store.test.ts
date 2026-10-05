@@ -17,13 +17,13 @@ describe('useContactDraftStore', () => {
     useContactDraftStore.getState().setField('message', 'Un projet')
 
     const stored: unknown = JSON.parse(localStorage.getItem(contactDraftStorageKey) ?? 'null')
-    expect(stored).toEqual({ state: { ...emptyContactDraft, message: 'Un projet' }, version: 1 })
+    expect(stored).toEqual({ state: { ...emptyContactDraft, message: 'Un projet' }, version: 0 })
   })
 
   it('restores a saved draft', async () => {
     localStorage.setItem(
       contactDraftStorageKey,
-      JSON.stringify({ state: { ...emptyContactDraft, email: 'ada@example.com' }, version: 1 }),
+      JSON.stringify({ state: { ...emptyContactDraft, email: 'ada@example.com' }, version: 0 }),
     )
 
     await useContactDraftStore.persist.rehydrate()

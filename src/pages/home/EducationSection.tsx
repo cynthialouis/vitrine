@@ -2,7 +2,6 @@ import { Container } from '../../components/ui/Container'
 import { SectionHeading } from '../../components/ui/SectionHeading'
 import { Serif } from '../../components/ui/Serif'
 import { education } from '../../content/education'
-import { home } from '../../content/home'
 import { EducationItem } from './EducationItem'
 
 export function EducationSection() {
@@ -16,7 +15,7 @@ export function EducationSection() {
               Mes <Serif>formations</Serif>
             </>
           }
-          description={home.education.description}
+          description="Un parcours construit pas à pas."
         />
 
         <ol className="mt-12 divide-y divide-line border-y border-line sm:mt-16">

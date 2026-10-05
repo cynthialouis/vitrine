@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { contact } from '../../../content/contact'
 import { profile } from '../../../content/profile'
 import { emptyContactDraft, useContactDraftStore } from '../draft-store'
 import { ContactForm } from './ContactForm'
@@ -64,7 +63,7 @@ describe('ContactForm', () => {
 
   it('announces the required fields convention', () => {
     render(<ContactForm />)
-    expect(screen.getByText(contact.requiredFieldsNote)).toBeInTheDocument()
+    expect(screen.getByText('Tous les champs sont obligatoires, sauf mention contraire.')).toBeInTheDocument()
   })
 
   it('shows a pending state while sending, keeps the focus and blocks resubmission', async () => {
@@ -103,7 +102,9 @@ describe('ContactForm', () => {
     await fillValidForm(user)
     await user.click(screen.getByRole('button', { name: 'Envoyer le message' }))
 
-    expect(await screen.findByText(contact.successMessage)).toBeInTheDocument()
+    expect(await screen.findByText(
+        'Merci, votre message a bien été envoyé. Je reviens vers vous rapidement.',
+      )).toBeInTheDocument()
     expect(send).toHaveBeenCalledWith({
       name: 'Ada Lovelace',
       email: 'ada@example.com',

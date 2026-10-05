@@ -1,5 +1,3 @@
-import type { AccentedText } from '../lib/accented-text'
-
 export type Photo = {
   src: string
   alt: string
@@ -9,7 +7,7 @@ export type Photo = {
 
 export type Profile = {
   name: string
-  role: AccentedText
+  role: string
   email: string
   stack: readonly string[]
   photo?: Photo
@@ -17,7 +15,7 @@ export type Profile = {
 
 export const profile: Profile = {
   name: 'Cynthia LOUIS',
-  role: { before: 'Développeuse web', accent: 'freelance' },
+  role: 'Développeuse web freelance',
   email: 'cynthialouis.dev@gmail.com',
   stack: ['Vue.js', 'React', 'JavaScript', 'TypeScript'],
 }

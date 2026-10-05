@@ -1,9 +1,10 @@
 import type { RouteObject } from 'react-router'
 import { NotFoundPage } from '../pages/errors/NotFoundPage'
+import { UnexpectedErrorPage } from '../pages/errors/UnexpectedErrorPage'
 import { HomePage } from '../pages/home/HomePage'
 import { Layout } from './Layout'
 import { paths } from './paths'
-import { RootErrorBoundary, RouteErrorBoundary } from './RouteErrorBoundary'
+import { RootErrorBoundary } from './RootErrorBoundary'
 
 export const routes: RouteObject[] = [
   {
@@ -13,7 +14,7 @@ export const routes: RouteObject[] = [
     children: [
       {
         // Pathless route: a failing page is replaced by the error while the layout stays.
-        ErrorBoundary: RouteErrorBoundary,
+        ErrorBoundary: UnexpectedErrorPage,
         children: [
           { index: true, Component: HomePage },
           {

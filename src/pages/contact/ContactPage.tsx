@@ -1,9 +1,7 @@
 import { Container } from '../../components/ui/Container'
 import { Serif } from '../../components/ui/Serif'
-import { contact } from '../../content/contact'
 import { profile } from '../../content/profile'
 import { ContactForm } from '../../features/contact/components/ContactForm'
-import { toPlainText } from '../../lib/accented-text'
 
 export function ContactPage() {
   return (
@@ -11,7 +9,7 @@ export function ContactPage() {
       <title>{`Contact · ${profile.name}`}</title>
       <meta
         name="description"
-        content={`Contactez ${profile.name}, ${toPlainText(profile.role).toLowerCase()}. ${contact.intro}`}
+        content={`Contactez ${profile.name}, ${profile.role.toLowerCase()}. Un premier contact suffit pour démarrer.`}
       />
 
       <section aria-labelledby="contact-title" className="relative overflow-hidden">
@@ -23,10 +21,10 @@ export function ContactPage() {
               Contactez-<Serif>moi</Serif>
             </h1>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-pretty text-ink-soft">
-              {contact.intro}
+              Un premier contact suffit pour démarrer.
             </p>
 
-            <p className="mt-10 text-ink-soft">{contact.emailLead}</p>
+            <p className="mt-10 text-ink-soft">Vous préférez l’email ?</p>
             <a
               href={`mailto:${profile.email}`}
               className="mt-1 inline-block text-lg font-medium underline decoration-line decoration-2 underline-offset-4 transition-colors hover:decoration-accent"

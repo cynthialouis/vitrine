@@ -4,5 +4,3 @@ export const buttonVariants = {
   secondary:
     'inline-flex items-center rounded-full border border-line px-6 py-3.5 font-medium transition-colors hover:border-ink',
 } as const satisfies Record<string, string>
-
-export type ButtonVariant = keyof typeof buttonVariants

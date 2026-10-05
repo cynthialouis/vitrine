@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { contact } from '../../content/contact'
 import { profile } from '../../content/profile'
 import { ContactPage } from './ContactPage'
 
@@ -15,13 +14,13 @@ describe('ContactPage', () => {
 
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Contactez-moi')
-    expect(screen.getByText(contact.intro)).toBeInTheDocument()
+    expect(screen.getByText('Un premier contact suffit pour démarrer.')).toBeInTheDocument()
   })
 
   it('offers the email address as an alternative to the form', () => {
     render(<ContactPage />)
 
-    expect(screen.getByText(contact.emailLead)).toBeInTheDocument()
+    expect(screen.getByText('Vous préférez l’email ?')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: profile.email })).toHaveAttribute(
       'href',
       `mailto:${profile.email}`,

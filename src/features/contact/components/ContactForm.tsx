@@ -1,5 +1,4 @@
 import { useActionState, useEffect, useRef } from 'react'
-import { contact } from '../../../content/contact'
 import { profile } from '../../../content/profile'
 import { createContactAction, initialContactFormState } from '../action'
 import { useContactDraftStore } from '../draft-store'
@@ -48,7 +47,7 @@ export function ContactForm({ send = sendContactMessage }: ContactFormProps) {
       noValidate
       className="rounded-3xl border border-line bg-surface p-6 shadow-sm sm:p-8"
     >
-      <p className="mb-6 text-sm text-ink-soft">{contact.requiredFieldsNote}</p>
+      <p className="mb-6 text-sm text-ink-soft">Tous les champs sont obligatoires, sauf mention contraire.</p>
 
       {state.status === 'invalid' && (
         <p role="alert" className="mb-6 rounded-xl bg-danger/10 px-4 py-3 text-sm font-medium text-danger">
@@ -96,7 +95,7 @@ export function ContactForm({ send = sendContactMessage }: ContactFormProps) {
       <div aria-live="polite">
         {state.status === 'sent' && (
           <p className="mt-6 rounded-xl bg-success/10 px-4 py-3 text-sm font-medium text-success">
-            {contact.successMessage}
+            Merci, votre message a bien été envoyé. Je reviens vers vous rapidement.
           </p>
         )}
       </div>
