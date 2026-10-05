@@ -62,21 +62,37 @@ describe('ContactForm', () => {
     expect(screen.getByLabelText('Votre projet')).toHaveValue('Un site vitrine')
   })
 
-  it('shows a pending state while sending', async () => {
+  it('announces the required fields convention', () => {
+    render(<ContactForm />)
+    expect(screen.getByText(contact.requiredFieldsNote)).toBeInTheDocument()
+  })
+
+  it('shows a pending state while sending, keeps the focus and blocks resubmission', async () => {
     const user = userEvent.setup()
     let resolveSending = () => {}
-    const sending = new Promise<void>((resolve) => {
-      resolveSending = resolve
-    })
-    render(<ContactForm send={() => sending} />)
+    const send = vi.fn(
+      () =>
+        new Promise<void>((resolve) => {
+          resolveSending = resolve
+        }),
+    )
+    render(<ContactForm send={send} />)
 
     await fillValidForm(user)
     await user.click(screen.getByRole('button', { name: 'Envoyer le message' }))
 
-    expect(await screen.findByRole('button', { name: 'Envoi…' })).toBeDisabled()
+    const pendingButton = await screen.findByRole('button', { name: 'Envoi…' })
+    expect(pendingButton).toHaveAttribute('aria-disabled', 'true')
+    expect(pendingButton).toHaveFocus()
+
+    await user.click(pendingButton)
+    expect(send).toHaveBeenCalledOnce()
 
     resolveSending()
-    expect(await screen.findByRole('button', { name: 'Envoyer le message' })).toBeEnabled()
+    expect(await screen.findByRole('button', { name: 'Envoyer le message' })).toHaveAttribute(
+      'aria-disabled',
+      'false',
+    )
   })
 
   it('confirms the delivery and clears the draft once the message is sent', async () => {

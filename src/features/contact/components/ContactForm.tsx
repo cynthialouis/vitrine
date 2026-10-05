@@ -19,7 +19,7 @@ function formatErrorCount(count: number): string {
 export function ContactForm({ send = sendContactMessage }: ContactFormProps) {
   const formRef = useRef<HTMLFormElement>(null)
   const clearDraft = useContactDraftStore((state) => state.clear)
-  const [state, formAction] = useActionState(
+  const [state, formAction, isPending] = useActionState(
     createContactAction({ send, onSent: clearDraft }),
     initialContactFormState,
   )
@@ -41,9 +41,15 @@ export function ContactForm({ send = sendContactMessage }: ContactFormProps) {
     <form
       ref={formRef}
       action={formAction}
+      onSubmit={(event) => {
+        // The submit button stays focusable while pending (aria-disabled), so block resubmission here.
+        if (isPending) event.preventDefault()
+      }}
       noValidate
       className="rounded-3xl border border-line bg-surface p-6 shadow-sm sm:p-8"
     >
+      <p className="mb-6 text-sm text-ink-soft">{contact.requiredFieldsNote}</p>
+
       {state.status === 'invalid' && (
         <p role="alert" className="mb-6 rounded-xl bg-danger/10 px-4 py-3 text-sm font-medium text-danger">
           {formatErrorCount(Object.keys(errors).length)} Corrigez les champs signalés.

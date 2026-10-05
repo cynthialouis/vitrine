@@ -44,6 +44,24 @@ describe('routes', () => {
     )
   })
 
+  it('moves focus to the main content after a client-side navigation', async () => {
+    const user = userEvent.setup()
+    renderRoute(paths.home)
+
+    const navigation = await screen.findByRole('navigation', { name: 'Navigation principale' })
+    expect(screen.getByRole('main')).not.toHaveFocus()
+
+    await user.click(within(navigation).getByRole('link', { name: 'Contact' }))
+    await screen.findByRole('heading', { level: 1, name: 'Contactez-moi' })
+
+    expect(screen.getByRole('main')).toHaveFocus()
+  })
+
+  it('anchors the back-to-top link on the banner', async () => {
+    renderRoute(paths.home)
+    expect(await screen.findByRole('banner')).toHaveAttribute('id', 'top')
+  })
+
   it('navigates back home from the name in the header', async () => {
     const user = userEvent.setup()
     renderRoute(paths.contact)
