@@ -1,6 +1,7 @@
 import { home } from '../../content/home'
 import { profile } from '../../content/profile'
 import { toPlainText } from '../../lib/accented-text'
+import { ContactCtaSection } from './ContactCtaSection'
 import { EducationSection } from './EducationSection'
 import { ExperiencesSection } from './ExperiencesSection'
 import { HeroSection } from './HeroSection'
@@ -13,6 +14,7 @@ export function HomePage() {
       <HeroSection />
       <ExperiencesSection />
       <EducationSection />
+      <ContactCtaSection />
     </>
   )
 }

@@ -10,6 +10,9 @@ export type HomeContent = {
   education: {
     description: string
   }
+  contactCta: {
+    description: string
+  }
 }
 
 export const home: HomeContent = {
@@ -25,5 +28,8 @@ export const home: HomeContent = {
   },
   education: {
     description: 'Un parcours construit pas à pas.',
+  },
+  contactCta: {
+    description: 'Racontez-moi votre besoin et je vous réponds rapidement.',
   },
 }
