@@ -5,6 +5,7 @@ Site vitrine de développeuse front-end freelance.
 ## Stack
 
 - Vite + React 19 + TypeScript (strict)
+- Tailwind CSS v4
 
 ## Scripts
 
