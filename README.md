@@ -6,6 +6,7 @@ Site vitrine de développeuse front-end freelance.
 
 - Vite + React 19 + TypeScript (strict)
 - Tailwind CSS v4
+- Vitest + Testing Library
 
 ## Scripts
 
@@ -16,3 +17,5 @@ Site vitrine de développeuse front-end freelance.
 | `npm run preview` | Prévisualisation du build            |
 | `npm run lint`    | Lint (oxlint)                        |
 | `npm run typecheck` | Vérification des types (TS strict) |
+| `npm test`        | Tests en mode watch                  |
+| `npm run test:run` | Exécution unique des tests          |
