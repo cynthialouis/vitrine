@@ -1,5 +1,6 @@
-import { Fragment, useId } from 'react'
+import { Fragment } from 'react'
 import { profile } from '../../content/profile'
+import { toPlainText } from '../../lib/accented-text'
 
 type TokenProps = {
   children: string
@@ -18,46 +19,38 @@ function Punct({ children }: TokenProps) {
 }
 
 export function CodeCard() {
-  const captionId = useId()
-  const summary = `${profile.name}, ${profile.role.toLowerCase()} basée à ${profile.location}. Stack : ${profile.stack.join(', ')}.`
-
   return (
-    <figure
-      aria-labelledby={captionId}
-      className="overflow-hidden rounded-2xl bg-code-bg shadow-2xl ring-1 shadow-ink/10 ring-ink/5"
+    <div
+      aria-hidden="true"
+      className="overflow-hidden rounded-2xl bg-code-bg shadow-2xl ring-1 shadow-ink/20 ring-ink/5"
     >
-      <figcaption id={captionId} className="sr-only">{summary}</figcaption>
-      <div aria-hidden="true">
-        <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3.5">
-          <span className="size-3 rounded-full bg-white/15" />
-          <span className="size-3 rounded-full bg-white/15" />
-          <span className="size-3 rounded-full bg-white/15" />
-          <span className="ml-3 font-mono text-xs text-code-muted">profile.ts</span>
-        </div>
-        <pre className="overflow-x-auto p-5 font-mono text-xs leading-6 sm:p-6 sm:text-sm sm:leading-7 text-code-text">
-          <code>
-            <Keyword>const</Keyword> freelance <Punct>=</Punct> <Punct>{'{'}</Punct>
-            {'\n  '}name<Punct>:</Punct> <Str>{profile.name}</Str>
-            <Punct>,</Punct>
-            {'\n  '}role<Punct>:</Punct> <Str>{profile.role}</Str>
-            <Punct>,</Punct>
-            {'\n  '}basedIn<Punct>:</Punct> <Str>{profile.location}</Str>
-            <Punct>,</Punct>
-            {'\n  '}stack<Punct>:</Punct> <Punct>[</Punct>
-            {profile.stack.map((item) => (
-              <Fragment key={item}>
-                {'\n    '}
-                <Str>{item}</Str>
-                <Punct>,</Punct>
-              </Fragment>
-            ))}
-            {'\n  '}
-            <Punct>],</Punct>
-            {'\n'}
-            <Punct>{'}'}</Punct> <Keyword>satisfies</Keyword> Developer
-          </code>
-        </pre>
+      <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-2.5">
+        <span className="size-2.5 rounded-full bg-white/15" />
+        <span className="size-2.5 rounded-full bg-white/15" />
+        <span className="size-2.5 rounded-full bg-white/15" />
+        <span className="ml-2 font-mono text-xs text-code-muted">profile.ts</span>
       </div>
-    </figure>
+      <pre className="overflow-x-auto p-4 font-mono text-xs leading-6 text-code-text">
+        <code>
+          <Keyword>const</Keyword> freelance <Punct>=</Punct> <Punct>{'{'}</Punct>
+          {'\n  '}name<Punct>:</Punct> <Str>{profile.name}</Str>
+          <Punct>,</Punct>
+          {'\n  '}role<Punct>:</Punct> <Str>{toPlainText(profile.role)}</Str>
+          <Punct>,</Punct>
+          {'\n  '}stack<Punct>:</Punct> <Punct>[</Punct>
+          {profile.stack.map((tool) => (
+            <Fragment key={tool}>
+              {'\n    '}
+              <Str>{tool}</Str>
+              <Punct>,</Punct>
+            </Fragment>
+          ))}
+          {'\n  '}
+          <Punct>],</Punct>
+          {'\n'}
+          <Punct>{'}'}</Punct> <Keyword>satisfies</Keyword> Developer
+        </code>
+      </pre>
+    </div>
   )
 }

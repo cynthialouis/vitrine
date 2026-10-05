@@ -1,6 +1,8 @@
+import type { AccentedText } from '../lib/accented-text'
+
 export type HomeContent = {
   hero: {
-    title: { before: string; accent: string; after: string }
+    description: AccentedText
   }
   experiences: {
     description: string
@@ -12,7 +14,11 @@ export type HomeContent = {
 
 export const home: HomeContent = {
   hero: {
-    title: { before: 'Lorem ipsum', accent: 'dolor', after: 'sit amet, consectetur adipiscing.' },
+    description: {
+      before: 'Je conçois des interfaces web',
+      accent: 'soignées',
+      after: 'et faciles à maintenir.',
+    },
   },
   experiences: {
     description: 'Des années à construire des interfaces qui servent.',

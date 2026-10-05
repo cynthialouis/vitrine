@@ -1,13 +1,14 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { home } from '../../content/home'
 import { profile } from '../../content/profile'
+import { toPlainText } from '../../lib/accented-text'
 import { HomePage } from './HomePage'
 
 describe('HomePage', () => {
   it('sets the document title', () => {
     render(<HomePage />)
-    expect(document.title).toBe(`${profile.name} · ${profile.role}`)
+    expect(document.title).toBe(`${profile.name} · ${toPlainText(profile.role)}`)
   })
 
   it('renders a single level-one heading', () => {
@@ -15,11 +16,28 @@ describe('HomePage', () => {
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)
   })
 
-  it('introduces the developer in the hero section', () => {
+  it('introduces the developer with her name, role and pitch', () => {
     render(<HomePage />)
-    const { before, accent, after } = home.hero.title
-    const hero = screen.getByRole('region', { name: `${before} ${accent} ${after}` })
-    expect(hero).toHaveTextContent(profile.name)
+    const hero = screen.getByRole('region', { name: profile.name })
+
+    expect(within(hero).getByRole('heading', { level: 1 })).toHaveTextContent(profile.name)
+    expect(hero).toHaveTextContent(toPlainText(profile.role))
+    expect(hero).toHaveTextContent(toPlainText(home.hero.description))
+  })
+
+  it('does not expose the role as a section heading', () => {
+    render(<HomePage />)
+    expect(
+      screen.queryByRole('heading', { name: toPlainText(profile.role) }),
+    ).not.toBeInTheDocument()
+  })
+
+  it('uses the hero description as meta description', () => {
+    render(<HomePage />)
+    expect(document.querySelector('meta[name="description"]')).toHaveAttribute(
+      'content',
+      toPlainText(home.hero.description),
+    )
   })
 
   it('links the hero call to action to the experiences section', () => {
@@ -34,11 +52,5 @@ describe('HomePage', () => {
     const link = screen.getByRole('link', { name: 'Voir mes formations' })
     const target = screen.getByRole('region', { name: 'Mes formations' })
     expect(link).toHaveAttribute('href', `#${target.id}`)
-  })
-
-  it('exposes the decorative code card through an accessible summary', () => {
-    render(<HomePage />)
-    const card = screen.getByRole('figure', { name: new RegExp(profile.name) })
-    expect(card).toHaveAccessibleName(expect.stringContaining(profile.stack.join(', ')))
   })
 })
