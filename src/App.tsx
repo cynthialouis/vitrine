@@ -1,9 +1,13 @@
+import { Header } from './app/Header'
 import { HomePage } from './pages/home/HomePage'
 
 export function App() {
   return (
-    <main>
-      <HomePage />
-    </main>
+    <>
+      <Header />
+      <main>
+        <HomePage />
+      </main>
+    </>
   )
 }

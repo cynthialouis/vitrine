@@ -14,7 +14,7 @@ export function HeroSection() {
         aria-hidden="true"
       />
 
-      <Container className="relative grid gap-16 pt-16 pb-20 sm:pt-24 lg:grid-cols-12 lg:items-center lg:pb-28">
+      <Container className="relative grid gap-16 pt-12 pb-20 sm:pt-20 lg:grid-cols-12 lg:items-center lg:pb-28">
         <div className="min-w-0 lg:col-span-7">
           <h1 id="hero-title" className="text-hero font-medium text-balance">
             {home.hero.title.before} <Serif>{home.hero.title.accent}</Serif> {home.hero.title.after}
