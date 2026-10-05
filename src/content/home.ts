@@ -15,8 +15,7 @@ export const home: HomeContent = {
     title: { before: 'Lorem ipsum', accent: 'dolor', after: 'sit amet, consectetur adipiscing.' },
   },
   experiences: {
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.',
+    description: 'Des années à construire des interfaces qui servent.',
   },
   education: {
     description:
