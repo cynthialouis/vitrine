@@ -18,6 +18,7 @@ Avant chaque commit, **les quatre doivent passer** : `typecheck`, `lint`, `test:
 ## Workflow
 
 - Travail **pas à pas** : pour chaque step, proposer le plan (fichiers touchés, dépendances, commits prévus) et **attendre la validation** avant d'implémenter.
+- **Jamais de commit sans validation manuelle** : une fois l'implémentation terminée et vérifiée, présenter les changements (fichiers modifiés, message de commit proposé) et attendre l'accord explicite avant de lancer `git commit`. Idem pour toute réécriture d'historique (amend, rebase).
 - Commits atomiques, [Conventional Commits](https://www.conventionalcommits.org/), en anglais, à l'impératif (`feat: add contact form schema`). Pas de trailer `Co-Authored-By`.
 - Une dépendance s'installe **dans le step qui l'utilise**, jamais par anticipation. Toute nouvelle dépendance doit être justifiée ; préférer la plateforme (Web APIs, React) à une lib.
 - Langue : code, noms, commentaires et commits en **anglais** ; contenu affiché à l'utilisateur et README en **français**.
