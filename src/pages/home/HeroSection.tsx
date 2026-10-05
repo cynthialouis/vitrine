@@ -1,4 +1,5 @@
 import { Container } from '../../components/ui/Container'
+import { ArrowDownIcon } from '../../components/ui/icons/ArrowDownIcon'
 import { Serif } from '../../components/ui/Serif'
 import { home } from '../../content/home'
 import { profile } from '../../content/profile'
@@ -23,6 +24,16 @@ export function HeroSection() {
             Je suis <strong className="font-medium text-ink">{profile.name}</strong>,{' '}
             {profile.role.toLowerCase()} basée à {profile.location}. {profile.pitch}
           </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <a
+              href="#experiences"
+              className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-medium text-paper transition-colors hover:bg-highlight hover:text-ink"
+            >
+              Découvrir mon parcours
+              <ArrowDownIcon className="size-4 motion-safe:transition-transform motion-safe:group-hover:translate-y-0.5" />
+            </a>
+          </div>
         </div>
 
         <div className="min-w-0 lg:col-span-5">

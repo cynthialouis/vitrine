@@ -22,6 +22,13 @@ describe('HomePage', () => {
     expect(hero).toHaveTextContent(profile.name)
   })
 
+  it('links the hero call to action to the experiences section', () => {
+    render(<HomePage />)
+    const link = screen.getByRole('link', { name: 'Découvrir mon parcours' })
+    const target = screen.getByRole('region', { name: 'Mes expériences' })
+    expect(link).toHaveAttribute('href', `#${target.id}`)
+  })
+
   it('exposes the decorative code card through an accessible summary', () => {
     render(<HomePage />)
     const card = screen.getByRole('figure', { name: new RegExp(profile.name) })
