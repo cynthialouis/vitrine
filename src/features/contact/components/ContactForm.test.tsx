@@ -61,6 +61,13 @@ describe('ContactForm', () => {
     expect(screen.getByLabelText('Votre projet')).toHaveValue('Un site vitrine')
   })
 
+  it('informs about the use of personal data', () => {
+    render(<ContactForm />)
+    expect(
+      screen.getByText('RGPD : Vos informations ne me servent qu’à vous répondre.'),
+    ).toBeInTheDocument()
+  })
+
   it('announces the required fields convention', () => {
     render(<ContactForm />)
     expect(screen.getByText('Tous les champs sont obligatoires, sauf mention contraire.')).toBeInTheDocument()

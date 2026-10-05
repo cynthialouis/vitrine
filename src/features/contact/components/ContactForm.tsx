@@ -114,6 +114,10 @@ export function ContactForm({ send = sendContactMessage }: ContactFormProps) {
         <SubmitButton />
         <p className="text-xs text-ink-soft">Brouillon enregistré automatiquement.</p>
       </div>
+
+      <p className="mt-6 text-xs text-ink-soft">
+        RGPD&nbsp;: Vos informations ne me servent qu’à vous répondre.
+      </p>
     </form>
   )
 }

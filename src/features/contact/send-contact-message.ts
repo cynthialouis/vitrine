@@ -2,9 +2,16 @@ import type { ContactMessage } from './schema'
 
 export type ContactMessageSender = (message: ContactMessage) => Promise<void>
 
-/**
- * Delivery is not wired to any service yet: failing explicitly lets the form
- * show its fallback (direct email) instead of pretending the message was sent.
- */
-export const sendContactMessage: ContactMessageSender = () =>
-  Promise.reject(new Error('Contact message delivery is not configured yet.'))
+/** Submits the message to Netlify Forms (form declared in public/__forms.html). */
+export const sendContactMessage: ContactMessageSender = async (message) => {
+  const response = await fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ 'form-name': 'contact', ...message }),
+    signal: AbortSignal.timeout(10_000),
+  })
+
+  if (!response.ok) {
+    throw new Error(`Contact form submission failed with status ${response.status}`)
+  }
+}
