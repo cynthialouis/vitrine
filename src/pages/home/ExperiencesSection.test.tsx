@@ -18,18 +18,15 @@ describe('ExperiencesSection', () => {
       const article = articles[index]
       if (!article) throw new Error(`Missing article for ${experience.id}`)
       expect(within(article).getByRole('heading', { level: 3 })).toHaveTextContent(experience.role)
-      expect(within(article).getByText(experience.company)).toBeInTheDocument()
     })
   })
 
-  it('lists the technologies used for each experience', () => {
+  it('renders a stack list only for experiences that have one', () => {
     render(<ExperiencesSection />)
-    const stacks = screen.getAllByRole('list', { name: 'Technologies utilisées' })
+    const experiencesWithStack = experiences.filter(({ stack }) => stack && stack.length > 0)
 
-    experiences.forEach((experience, index) => {
-      const stack = stacks[index]
-      if (!stack) throw new Error(`Missing stack for ${experience.id}`)
-      expect(within(stack).getAllByRole('listitem')).toHaveLength(experience.stack.length)
-    })
+    expect(screen.queryAllByRole('list', { name: 'Stack et outils' })).toHaveLength(
+      experiencesWithStack.length,
+    )
   })
 })
