@@ -11,6 +11,8 @@ export const routes: RouteObject[] = [
     path: paths.home,
     Component: Layout,
     ErrorBoundary: RootErrorBoundary,
+    // Nothing to show while a lazy page loads on first visit (avoids a React Router warning).
+    HydrateFallback: () => null,
     children: [
       {
         // Pathless route: a failing page is replaced by the error while the layout stays.

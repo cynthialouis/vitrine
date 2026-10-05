@@ -4,6 +4,8 @@
 
 Site vitrine de développeuse front-end freelance.
 
+**En ligne : https://deft-naiad-02e743.netlify.app**
+
 ## Stack
 
 - Vite + React 19 + TypeScript (strict)
