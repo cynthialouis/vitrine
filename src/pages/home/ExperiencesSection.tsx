@@ -7,7 +7,11 @@ import { ExperienceItem } from './ExperienceItem'
 
 export function ExperiencesSection() {
   return (
-    <section id="experiences" aria-labelledby="experiences-title" className="py-20 sm:py-28">
+    <section
+      id="experiences"
+      aria-labelledby="experiences-title"
+      className="border-y border-line bg-sunken py-20 sm:py-28"
+    >
       <Container>
         <SectionHeading
           id="experiences-title"

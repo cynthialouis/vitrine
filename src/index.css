@@ -4,20 +4,22 @@
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 
-  --color-paper: oklch(0.985 0.004 95);
+  --color-paper: oklch(0.985 0.005 60);
   --color-surface: oklch(1 0 0);
-  --color-ink: oklch(0.21 0.012 260);
-  --color-ink-soft: oklch(0.46 0.012 260);
-  --color-line: oklch(0.9 0.006 95);
-  --color-accent: oklch(0.58 0.1 165);
-  --color-accent-ink: oklch(0.4 0.075 165);
-  --color-highlight: oklch(0.9 0.045 40);
-  --color-danger: oklch(0.5 0.18 25);
+  --color-sunken: oklch(0.96 0.012 45);
+  --color-ink: oklch(0.22 0.012 30);
+  --color-ink-soft: oklch(0.47 0.014 30);
+  --color-line: oklch(0.91 0.008 50);
+  --color-accent: oklch(0.64 0.085 10);
+  --color-accent-ink: oklch(0.48 0.09 10);
+  --color-highlight: oklch(0.92 0.035 25);
+  --color-danger: oklch(0.53 0.19 28);
+  --color-success: oklch(0.47 0.09 155);
 
-  --color-code-bg: oklch(0.21 0.012 260);
-  --color-code-text: oklch(0.93 0.005 260);
-  --color-code-muted: oklch(0.68 0.012 260);
-  --color-code-keyword: oklch(0.8 0.1 165);
+  --color-code-bg: oklch(0.22 0.012 30);
+  --color-code-text: oklch(0.93 0.006 30);
+  --color-code-muted: oklch(0.68 0.014 30);
+  --color-code-keyword: oklch(0.82 0.07 10);
   --color-code-string: oklch(0.84 0.09 75);
 
   --text-hero: clamp(2.75rem, 7vw, 5.25rem);

@@ -7,11 +7,7 @@ import { EducationItem } from './EducationItem'
 
 export function EducationSection() {
   return (
-    <section
-      id="education"
-      aria-labelledby="education-title"
-      className="border-t border-line bg-surface py-20 sm:py-28"
-    >
+    <section id="education" aria-labelledby="education-title" className="py-20 sm:py-28">
       <Container>
         <SectionHeading
           id="education-title"
