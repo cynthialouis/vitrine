@@ -22,7 +22,7 @@ export const experiences: readonly Experience[] = [
   },
   {
     id: 'independent-web-developer',
-    role: 'Développeuse web indépendante · SEO, IA et automatisation',
+    role: 'Développeuse web indépendante\u00a0· SEO, IA et automatisation',
     start: '2025-02',
     end: '2026-09',
     missions: [

@@ -17,7 +17,7 @@ describe('ExperiencesSection', () => {
     experiences.forEach((experience, index) => {
       const article = articles[index]
       if (!article) throw new Error(`Missing article for ${experience.id}`)
-      expect(within(article).getByRole('heading', { level: 3 })).toHaveTextContent(experience.role)
+      expect(within(article).getByRole('heading', { level: 3, name: experience.role })).toBeInTheDocument()
     })
   })
 

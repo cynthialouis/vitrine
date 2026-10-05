@@ -48,7 +48,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-sm pb-40 lg:col-span-5 lg:mr-0">
+        <div className="relative mx-auto w-full max-w-sm pb-64 sm:pb-40 lg:col-span-5 lg:mr-0">
           <ProfilePhoto name={profile.name} photo={profile.photo} />
           <div className="absolute bottom-0 -left-2 w-max sm:-left-12">
             <CodeCard />

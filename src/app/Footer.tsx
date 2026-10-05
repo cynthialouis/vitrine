@@ -21,12 +21,12 @@ export function Footer() {
         </div>
 
         <div className="flex items-center gap-6 self-start sm:self-auto">
-          <Link to={paths.contact} className="font-medium transition-colors hover:text-ink">
+          <Link to={paths.contact} className="-my-2 inline-flex py-2 font-medium transition-colors hover:text-ink">
             Contact
           </Link>
           <a
             href="#top"
-            className="group inline-flex items-center gap-2 font-medium transition-colors hover:text-ink"
+            className="group -my-2 inline-flex items-center gap-2 py-2 font-medium transition-colors hover:text-ink"
           >
             Retour en haut
             <ArrowDownIcon className="size-4 rotate-180 motion-safe:transition-transform motion-safe:group-hover:-translate-y-0.5" />
