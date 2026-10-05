@@ -14,3 +14,4 @@ Site vitrine de développeuse front-end freelance.
 | `npm run build`   | Vérification des types + build       |
 | `npm run preview` | Prévisualisation du build            |
 | `npm run lint`    | Lint (oxlint)                        |
+| `npm run typecheck` | Vérification des types (TS strict) |
