@@ -6,20 +6,20 @@
 
   --color-paper: oklch(0.985 0.005 60);
   --color-surface: oklch(1 0 0);
-  --color-sunken: oklch(0.96 0.012 45);
+  --color-sunken: oklch(0.958 0.008 70);
   --color-ink: oklch(0.22 0.012 30);
   --color-ink-soft: oklch(0.47 0.014 30);
-  --color-line: oklch(0.91 0.008 50);
-  --color-accent: oklch(0.64 0.085 10);
-  --color-accent-ink: oklch(0.48 0.09 10);
-  --color-highlight: oklch(0.92 0.035 25);
+  --color-line: oklch(0.91 0.006 70);
+  --color-accent: oklch(0.64 0.06 15);
+  --color-accent-ink: oklch(0.48 0.065 15);
+  --color-highlight: oklch(0.94 0.025 25);
   --color-danger: oklch(0.53 0.19 28);
   --color-success: oklch(0.47 0.09 155);
 
   --color-code-bg: oklch(0.22 0.012 30);
   --color-code-text: oklch(0.93 0.006 30);
   --color-code-muted: oklch(0.68 0.014 30);
-  --color-code-keyword: oklch(0.82 0.07 10);
+  --color-code-keyword: oklch(0.82 0.05 15);
   --color-code-string: oklch(0.84 0.09 75);
 
   --text-hero: clamp(2.75rem, 7vw, 5.25rem);
