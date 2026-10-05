@@ -1,4 +1,4 @@
-import type { IsoMonth } from '../lib/format-month'
+import type { IsoMonth } from '../lib/format-date'
 
 export type Mission = string | { title: string; items: readonly string[] }
 

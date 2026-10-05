@@ -53,6 +53,14 @@
     @apply outline-2 outline-offset-2 outline-accent-ink;
   }
 
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
   ::selection {
     @apply bg-accent/20;
   }

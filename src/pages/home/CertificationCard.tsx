@@ -1,5 +1,5 @@
 import type { Certification } from '../../content/education'
-import { formatMonth } from '../../lib/format-month'
+import { formatDate } from '../../lib/format-date'
 
 type CertificationCardProps = {
   certification: Certification
@@ -14,7 +14,7 @@ export function CertificationCard({ certification }: CertificationCardProps) {
       <h4 className="mt-5 text-lg leading-snug font-medium text-balance">{name}</h4>
       <p className="mt-1 text-ink-soft">{issuer}</p>
       <p className="mt-auto pt-6 text-sm text-ink-soft">
-        Obtenue en <time dateTime={issuedOn}>{formatMonth(issuedOn)}</time>
+        Obtenue en <time dateTime={issuedOn}>{formatDate(issuedOn)}</time>
       </p>
     </article>
   )

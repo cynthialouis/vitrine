@@ -13,4 +13,16 @@ describe('Period', () => {
     render(<Period start="2023-03" end={null} />)
     expect(screen.getByText(/aujourd’hui/)).toBeInTheDocument()
   })
+
+  it('supports year-only bounds', () => {
+    render(<Period start="2015" end="2016" />)
+    expect(screen.getByText('2015')).toHaveAttribute('datetime', '2015')
+    expect(screen.getByText('2016')).toHaveAttribute('datetime', '2016')
+  })
+
+  it('renders a single date when both bounds are equal', () => {
+    render(<Period start="2008" end="2008" />)
+    expect(screen.getByText('2008')).toHaveAttribute('datetime', '2008')
+    expect(screen.queryByText(/–/)).not.toBeInTheDocument()
+  })
 })

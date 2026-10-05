@@ -1,7 +1,7 @@
 import { render, screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { certifications, education } from '../../content/education'
-import { formatMonth } from '../../lib/format-month'
+import { formatDate } from '../../lib/format-date'
 import { EducationSection } from './EducationSection'
 
 describe('EducationSection', () => {
@@ -39,7 +39,7 @@ describe('EducationSection', () => {
       if (!card) throw new Error(`Missing card for ${certification.id}`)
 
       expect(within(card).getByText(certification.issuer)).toBeInTheDocument()
-      expect(within(card).getByText(formatMonth(certification.issuedOn))).toHaveAttribute(
+      expect(within(card).getByText(formatDate(certification.issuedOn))).toHaveAttribute(
         'datetime',
         certification.issuedOn,
       )

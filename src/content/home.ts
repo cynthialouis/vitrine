@@ -18,7 +18,6 @@ export const home: HomeContent = {
     description: 'Des années à construire des interfaces qui servent.',
   },
   education: {
-    description:
-      'Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.',
+    description: 'Un parcours construit pas à pas.',
   },
 }
