@@ -1,3 +1,4 @@
+import { Footer } from './app/Footer'
 import { Header } from './app/Header'
 import { HomePage } from './pages/home/HomePage'
 
@@ -8,6 +9,7 @@ export function App() {
       <main>
         <HomePage />
       </main>
+      <Footer />
     </>
   )
 }
