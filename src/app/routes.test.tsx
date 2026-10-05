@@ -54,4 +54,13 @@ describe('routes', () => {
 
     expect(await screen.findByRole('heading', { level: 1, name: profile.name })).toBeInTheDocument()
   })
+
+  it('renders the not found page inside the layout for an unknown URL', async () => {
+    renderRoute('/page-inconnue')
+
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'Oops, cette page n’existe pas.' }),
+    ).toBeInTheDocument()
+    expect(screen.getByRole('banner')).toBeInTheDocument()
+  })
 })

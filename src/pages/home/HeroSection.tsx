@@ -1,4 +1,5 @@
 import { Accented } from '../../components/ui/Accented'
+import { buttonVariants } from '../../components/ui/button-variants'
 import { Container } from '../../components/ui/Container'
 import { ArrowDownIcon } from '../../components/ui/icons/ArrowDownIcon'
 import { home } from '../../content/home'
@@ -33,14 +34,14 @@ export function HeroSection() {
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <a
               href="#experiences"
-              className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-medium text-paper transition-colors hover:bg-highlight hover:text-ink"
+              className={buttonVariants.primary}
             >
               Découvrir mon parcours
               <ArrowDownIcon className="size-4 motion-safe:transition-transform motion-safe:group-hover:translate-y-0.5" />
             </a>
             <a
               href="#education"
-              className="inline-flex items-center rounded-full border border-line px-6 py-3.5 font-medium transition-colors hover:border-ink"
+              className={buttonVariants.secondary}
             >
               Voir mes formations
             </a>
