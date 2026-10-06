@@ -47,7 +47,9 @@ export function ContactForm({ send = sendContactMessage }: ContactFormProps) {
       noValidate
       className="rounded-3xl border border-line bg-surface p-6 shadow-sm sm:p-8"
     >
-      <p className="mb-6 text-sm text-ink-soft">Tous les champs sont obligatoires, sauf mention contraire.</p>
+      <p className="mb-6 text-sm text-ink-soft">
+        RGPD&nbsp;: Vos informations ne me servent qu’à vous répondre.
+      </p>
 
       {state.status === 'invalid' && (
         <p role="alert" className="mb-6 rounded-xl bg-danger/10 px-4 py-3 text-sm font-medium text-danger">
@@ -114,10 +116,6 @@ export function ContactForm({ send = sendContactMessage }: ContactFormProps) {
         <SubmitButton />
         <p className="text-xs text-ink-soft">Brouillon enregistré automatiquement.</p>
       </div>
-
-      <p className="mt-6 text-xs text-ink-soft">
-        RGPD&nbsp;: Vos informations ne me servent qu’à vous répondre.
-      </p>
     </form>
   )
 }

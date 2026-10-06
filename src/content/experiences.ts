@@ -26,7 +26,7 @@ export const experiences: readonly Experience[] = [
     start: '2025-02',
     end: '2026-09',
     missions: [
-      'Création de sites de contenus conçus pour se positionner sur Google et être monétisés, en développement assisté par IA avec Cursor',
+      'Création de sites de contenus, en développement assisté par IA avec Cursor',
       'Montée en compétence sur le développement assisté par IA : Cursor, puis Claude Code',
       'Automatisation de workflows avec n8n',
       'Montée en compétence sur React 19 et TypeScript avec Claude Code',

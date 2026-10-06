@@ -31,4 +31,14 @@ describe('ContactPage', () => {
     render(<ContactPage />)
     expect(screen.getByRole('button', { name: 'Envoyer le message' })).toBeInTheDocument()
   })
+
+  it('offers the LinkedIn profile as another way to get in touch', () => {
+    render(<ContactPage />)
+    const link = screen.getByRole('link', {
+      name: 'linkedin.com/in/cynthia-louis (nouvel onglet)',
+    })
+
+    expect(link).toHaveAttribute('href', profile.linkedin)
+    expect(link).toHaveAttribute('target', '_blank')
+  })
 })

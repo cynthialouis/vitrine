@@ -34,4 +34,13 @@ describe('Footer', () => {
     render(<Footer />, { wrapper: MemoryRouter })
     expect(screen.getByRole('link', { name: 'Contact' })).toHaveAttribute('href', paths.contact)
   })
+
+  it('links to the LinkedIn profile in a new tab', () => {
+    render(<Footer />, { wrapper: MemoryRouter })
+    const link = screen.getByRole('link', { name: 'LinkedIn (nouvel onglet)' })
+
+    expect(link).toHaveAttribute('href', profile.linkedin)
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+  })
 })

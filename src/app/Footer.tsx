@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import { Container } from '../components/ui/Container'
 import { ArrowDownIcon } from '../components/ui/icons/ArrowDownIcon'
+import { LinkedInIcon } from '../components/ui/icons/LinkedInIcon'
 import { Serif } from '../components/ui/Serif'
 import { profile } from '../content/profile'
 import { paths } from './paths'
@@ -20,10 +21,20 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="flex items-center gap-6 self-start sm:self-auto">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 self-start sm:self-auto">
           <Link to={paths.contact} className="-my-2 inline-flex py-2 font-medium transition-colors hover:text-ink">
             Contact
           </Link>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="-my-2 inline-flex items-center gap-2 py-2 font-medium transition-colors hover:text-ink"
+          >
+            <LinkedInIcon className="size-4" />
+            LinkedIn{' '}
+            <span className="sr-only">(nouvel onglet)</span>
+          </a>
           <a
             href="#top"
             className="group -my-2 inline-flex items-center gap-2 py-2 font-medium transition-colors hover:text-ink"

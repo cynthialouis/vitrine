@@ -6,9 +6,9 @@ import { emptyContactDraft, useContactDraftStore } from '../draft-store'
 import { ContactForm } from './ContactForm'
 
 async function fillValidForm(user: ReturnType<typeof userEvent.setup>) {
-  await user.type(screen.getByLabelText('Nom'), 'Ada Lovelace')
-  await user.type(screen.getByLabelText('Email'), 'ada@example.com')
-  await user.type(screen.getByLabelText('Votre projet'), 'Refonte de notre site vitrine en React.')
+  await user.type(screen.getByRole('textbox', { name: 'Nom' }), 'Ada Lovelace')
+  await user.type(screen.getByRole('textbox', { name: 'Email' }), 'ada@example.com')
+  await user.type(screen.getByRole('textbox', { name: 'Votre projet' }), 'Refonte de notre site vitrine en React.')
 }
 
 describe('ContactForm', () => {
@@ -20,8 +20,8 @@ describe('ContactForm', () => {
   it('marks the company field as optional', () => {
     render(<ContactForm />)
 
-    expect(screen.getByLabelText('Entreprise (facultatif)')).not.toBeRequired()
-    expect(screen.getByLabelText('Nom')).toBeRequired()
+    expect(screen.getByRole('textbox', { name: 'Entreprise (facultatif)' })).not.toBeRequired()
+    expect(screen.getByRole('textbox', { name: 'Nom' })).toBeRequired()
   })
 
   it('reports errors, links them to their fields and focuses the first invalid field', async () => {
@@ -32,7 +32,7 @@ describe('ContactForm', () => {
     await user.click(screen.getByRole('button', { name: 'Envoyer le message' }))
 
     expect(await screen.findByRole('alert')).toHaveTextContent('Le formulaire contient 3 erreurs.')
-    const nameField = screen.getByLabelText('Nom')
+    const nameField = screen.getByRole('textbox', { name: 'Nom' })
     expect(nameField).toHaveFocus()
     expect(nameField).toBeInvalid()
     expect(nameField).toHaveAccessibleDescription('Indiquez votre nom.')
@@ -43,22 +43,22 @@ describe('ContactForm', () => {
     const user = userEvent.setup()
     render(<ContactForm />)
 
-    await user.type(screen.getByLabelText('Nom'), 'Ada')
+    await user.type(screen.getByRole('textbox', { name: 'Nom' }), 'Ada')
     await user.click(screen.getByRole('button', { name: 'Envoyer le message' }))
 
     await screen.findByRole('alert')
-    expect(screen.getByLabelText('Nom')).toHaveValue('Ada')
+    expect(screen.getByRole('textbox', { name: 'Nom' })).toHaveValue('Ada')
   })
 
   it('saves the draft as the user types and restores it on the next render', async () => {
     const user = userEvent.setup()
     const { unmount } = render(<ContactForm />)
 
-    await user.type(screen.getByLabelText('Votre projet'), 'Un site vitrine')
+    await user.type(screen.getByRole('textbox', { name: 'Votre projet' }), 'Un site vitrine')
     unmount()
     render(<ContactForm />)
 
-    expect(screen.getByLabelText('Votre projet')).toHaveValue('Un site vitrine')
+    expect(screen.getByRole('textbox', { name: 'Votre projet' })).toHaveValue('Un site vitrine')
   })
 
   it('informs about the use of personal data', () => {
@@ -68,9 +68,12 @@ describe('ContactForm', () => {
     ).toBeInTheDocument()
   })
 
-  it('announces the required fields convention', () => {
+  it('marks required fields with an asterisk hidden from assistive technologies', () => {
     render(<ContactForm />)
-    expect(screen.getByText('Tous les champs sont obligatoires, sauf mention contraire.')).toBeInTheDocument()
+
+    const nameField = screen.getByRole('textbox', { name: 'Nom' })
+    expect(nameField).toBeRequired()
+    expect(screen.getByText('Nom').parentElement).toHaveTextContent('Nom *')
   })
 
   it('shows a pending state while sending, keeps the focus and blocks resubmission', async () => {
@@ -118,7 +121,7 @@ describe('ContactForm', () => {
       company: '',
       message: 'Refonte de notre site vitrine en React.',
     })
-    expect(screen.getByLabelText('Nom')).toHaveValue('')
+    expect(screen.getByRole('textbox', { name: 'Nom' })).toHaveValue('')
     expect(useContactDraftStore.getState()).toMatchObject(emptyContactDraft)
   })
 
@@ -135,6 +138,6 @@ describe('ContactForm', () => {
       'href',
       `mailto:${profile.email}`,
     )
-    expect(screen.getByLabelText('Nom')).toHaveValue('Ada Lovelace')
+    expect(screen.getByRole('textbox', { name: 'Nom' })).toHaveValue('Ada Lovelace')
   })
 })

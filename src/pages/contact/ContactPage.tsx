@@ -1,4 +1,5 @@
 import { Container } from '../../components/ui/Container'
+import { LinkedInIcon } from '../../components/ui/icons/LinkedInIcon'
 import { Serif } from '../../components/ui/Serif'
 import { profile } from '../../content/profile'
 import { ContactForm } from '../../features/contact/components/ContactForm'
@@ -30,6 +31,18 @@ export function ContactPage() {
               className="mt-1 inline-block text-lg font-medium underline decoration-line decoration-2 underline-offset-4 transition-colors hover:decoration-accent"
             >
               {profile.email}
+            </a>
+
+            <p className="mt-8 text-ink-soft">Ou échangeons sur LinkedIn</p>
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-flex items-center gap-2 text-lg font-medium underline decoration-line decoration-2 underline-offset-4 transition-colors hover:decoration-accent"
+            >
+              <LinkedInIcon className="size-5 shrink-0" />
+              {profile.linkedin.replace(/^https:\/\/www\./, '')}{' '}
+              <span className="sr-only">(nouvel onglet)</span>
             </a>
           </div>
 

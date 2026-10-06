@@ -46,8 +46,15 @@ export function FormField({
   return (
     <div>
       <label htmlFor={id} className="text-sm font-medium">
-        {label}
-        {optional && <span className="font-normal text-ink-soft"> (facultatif)</span>}
+        {label}{' '}
+        {optional ? (
+          <span className="font-normal text-ink-soft">(facultatif)</span>
+        ) : (
+          // Visual cue only: the field itself is announced as required (required attribute).
+          <span aria-hidden="true" className="text-accent-ink">
+            *
+          </span>
+        )}
       </label>
 
       {multiline ? (
