@@ -4,7 +4,7 @@
 
 Site vitrine de développeuse front-end freelance.
 
-**En ligne : https://deft-naiad-02e743.netlify.app**
+**En ligne : https://cynthialouis-dev.fr**
 
 ## Stack
 
