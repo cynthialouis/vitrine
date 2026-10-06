@@ -15,7 +15,7 @@ export function EducationItem({ education }: EducationItemProps) {
   return (
     <article className="grid gap-x-8 gap-y-4 py-6 lg:grid-cols-12">
       <div className="lg:col-span-8 lg:col-start-5">
-        <h3 className="text-2xl font-medium tracking-tight text-balance">{title}</h3>
+        <h4 className="text-2xl font-medium tracking-tight text-balance">{title}</h4>
         <p className="mt-1 font-medium text-accent-ink">{organization}</p>
 
         {modules && modules.length > 0 && (

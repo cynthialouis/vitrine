@@ -14,7 +14,7 @@ export type Education = {
   modules?: readonly Module[]
 }
 
-export const education: readonly Education[] = [
+export const degrees: readonly Education[] = [
   {
     id: 'eni-concepteur-developpeur',
     title: 'Concepteur Développeur Informatique, titre RNCP niveau II',
@@ -98,6 +98,9 @@ export const education: readonly Education[] = [
     organization: 'Université Rennes 2',
     period: { start: '2008', end: '2008' },
   },
+]
+
+export const certifications: readonly Education[] = [
   {
     id: 'livementor-copywriting',
     title: 'Générer des prospects grâce à une stratégie de rédaction de contenus digitaux - Copywriting',

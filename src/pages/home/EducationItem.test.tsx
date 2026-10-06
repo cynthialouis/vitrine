@@ -22,7 +22,7 @@ describe('EducationItem', () => {
   it('renders the title and the organization', () => {
     render(<EducationItem education={minimalEducation} />)
 
-    expect(screen.getByRole('heading', { level: 3, name: 'Title only' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 4, name: 'Title only' })).toBeInTheDocument()
     expect(screen.getByText('Organization')).toBeInTheDocument()
   })
 
