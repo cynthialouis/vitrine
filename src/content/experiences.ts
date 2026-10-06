@@ -26,12 +26,21 @@ export const experiences: readonly Experience[] = [
     start: '2025-02',
     end: '2026-09',
     missions: [
-      'Création de sites de contenus, en développement assisté par IA avec Cursor',
-      'Montée en compétence sur le développement assisté par IA : Cursor, puis Claude Code',
-      'Automatisation de workflows avec n8n',
-      'Montée en compétence sur React 19 et TypeScript avec Claude Code',
+      'Conception et développement de sites de contenus, avec une approche AI-First',
+      'Conception et automatisation de workflows métier complexes (création de contenu et génération d’images avec n8n et OpenAI API)',
+      'Intégration de l’IA dans les processus de développement et de production de contenu',
+      'Mise en œuvre de stratégies SEO et copywriting pour développer la visibilité et l’acquisition organique',
+      'Utilisation d’outils de développement assisté par IA : Claude Code, Cursor',
+      'Montée en compétences sur React 19 et TypeScript avec Claude Code',
     ],
-    stack: ['Claude Code', 'Cursor', 'n8n', 'SEO', 'Copywriting'],
+    stack: [
+      'Développement web',
+      'Claude Code, Cursor',
+      'n8n, Automatisation',
+      'SEO',
+      'Copywriting',
+      'IA générative',
+    ],
   },
   {
     id: 'jellysmack',
@@ -46,7 +55,7 @@ export const experiences: readonly Experience[] = [
       'Gestion des mises en production',
       'Création de documentation : process de déploiement, setup pour les nouveaux arrivants',
     ],
-    stack: ['Vue.js 2 et 3 (Options API)', 'Tailwind CSS'],
+    stack: ['Vue.js 2 et 3', 'Tailwind CSS'],
   },
   {
     id: 'son-video',
@@ -90,6 +99,6 @@ export const experiences: readonly Experience[] = [
       'Développement d’un Power-Up Trello',
       'Développement du site web d’un produit interne',
     ],
-    stack: ['HTML', 'CSS', 'JavaScript (ES6)', 'AngularJS', 'C#', 'ASP.NET MVC', 'SQL Server'],
+    stack: ['JavaScript (ES6)', 'AngularJS', 'C#', 'ASP.NET MVC', 'SQL Server'],
   },
 ]
